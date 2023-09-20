@@ -107,7 +107,7 @@ plot(z_vector1,efield_Z1(3,:),'xb','LineWidth',1.4);
 plot(z_vector1,efield_Z1(4,:),'xm','LineWidth',1.4);
 
 
-lgd = legend('\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','southoutside','Orientation','horizontal');
+lgd = legend('\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','southoutside','Orientation','horizontal');
 lgd.NumColumns = 4;
 plot([NaN NaN], [NaN NaN],'x', 'Color', 'k', 'DisplayName', 'Method1');
 plot([NaN NaN], [NaN NaN],'-', 'Color', 'k', 'DisplayName', 'Method2');
