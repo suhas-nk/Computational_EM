@@ -96,26 +96,24 @@ efield_Z1 = [4.9088    2.5510    0.9988    0.6811    0.5472    0.4806    0.4489 
     0.9887    0.9741    0.9363    0.8879    0.8395    0.7972    0.7645    0.7451    0.7433    0.7640   0.8080    0.8669    0.9201    0.9427    0.9219    0.8639];
 fig2 = figure('Color','w');
 
-plot(z_vector2,efield_Z2(1,:),'r','LineWidth',1.4,'DisplayName','Method2');hold on;
+plot(z_vector2,efield_Z2(1,:),'r','LineWidth',1.4);hold on;
 plot(z_vector2,efield_Z2(2,:),'g','LineWidth',1.4);hold on;
 plot(z_vector2,efield_Z2(3,:),'b','LineWidth',1.4);hold on;
 plot(z_vector2,efield_Z2(4,:),'m','LineWidth',1.4);hold on;
 
-plot(z_vector1,efield_Z1(1,:),'xr','LineWidth',1.4,'DisplayName','Method1');hold on;
-plot(z_vector1,efield_Z1(2,:),'xg','LineWidth',1.4);
-plot(z_vector1,efield_Z1(3,:),'xb','LineWidth',1.4);
-plot(z_vector1,efield_Z1(4,:),'xm','LineWidth',1.4);
+p1=plot(z_vector1,efield_Z1(1,:),'xr','LineWidth',1.4);hold on;
+p2=plot(z_vector1,efield_Z1(2,:),'xg','LineWidth',1.4);
+p3=plot(z_vector1,efield_Z1(3,:),'xb','LineWidth',1.4);
+p4=plot(z_vector1,efield_Z1(4,:),'xm','LineWidth',1.4);
+title('z-comp. of Electric Field for 0.5\lambda dipole','Fontsize',10);
+xlabel('z/\lambda in m','Fontsize',10);
+ylabel('E_z in V/m','Fontsize',10);
+lgd1 = legend('\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','north','Orientation','vertical','Fontsize',10);
+ah1=axes('position',get(gca,'position'),'visible','off');
+title(lgd1,'Method2','Fontsize',10)
+lgd2 = legend(ah1,[p1,p2,p3,p4],'\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','northwest','Orientation','vertical','Fontsize',10);
+title(lgd2,'Method1','FontSize',10);
 
-
-lgd = legend('\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','southoutside','Orientation','horizontal');
-lgd.NumColumns = 4;
-plot([NaN NaN], [NaN NaN],'x', 'Color', 'k', 'DisplayName', 'Method1');
-plot([NaN NaN], [NaN NaN],'-', 'Color', 'k', 'DisplayName', 'Method2');
-
-title('z-comp. of Electric Field for 0.5\lambda dipole')
-xlabel('z/\lambda')
-ylabel('Electric Field in Volts/meter')
-%legend('\rho/\lambda=0.02','\rho/\lambda=0.03','\rho/\lambda=0.05','\rho/\lambda=0.1','Location','northwest');
 rho_vector = [0.01 0.02 0.05]*lambda;
 for q = 1:length(rho_vector)
     for p = 1:length(z_vector2)
@@ -184,18 +182,17 @@ fig3 = figure('Color','w');
 plot(z_vector2,efield_rho(1,:),'r','LineWidth',1.4);hold on;
 plot(z_vector2,efield_rho(2,:),'b','LineWidth',1.4);hold on;
 plot(z_vector2,efield_rho(3,:),'m','LineWidth',1.4);hold on;
-plot(z_vector1,efield_rho1(1,:),'xr','LineWidth',1.4);hold on;
-plot(z_vector1,efield_rho1(2,:),'xb','LineWidth',1.4);hold on;
-plot(z_vector1,efield_rho1(3,:),'xm','LineWidth',1.4);hold on;
-lgd = legend('\rho/\lambda=0.01','\rho/\lambda=0.02','\rho/\lambda=0.05','\rho/\lambda=0.01','\rho/\lambda=0.02','\rho/\lambda=0.05','Location','southoutside','Orientation','horizontal');
-lgd.NumColumns = 3;
-plot([NaN NaN], [NaN NaN],'x', 'Color', 'k', 'DisplayName', 'Method1');
-plot([NaN NaN], [NaN NaN],'-', 'Color', 'k', 'DisplayName', 'Method2');
-
-title('\rho-comp. of Electric Field for 0.5\lambda dipole')
-xlabel('\rho/\lambda')
-ylabel('Electric Field in Volts/meter')
-%legend('\rho/\lambda=0.01','\rho/\lambda=0.02','\rho/\lambda=0.05','Location','northwest');
+p5=plot(z_vector1,efield_rho1(1,:),'xr','LineWidth',1.4);hold on;
+p6=plot(z_vector1,efield_rho1(2,:),'xb','LineWidth',1.4);hold on;
+p7=plot(z_vector1,efield_rho1(3,:),'xm','LineWidth',1.4);hold on;
+title('\rho-comp. of Electric Field for 0.5\lambda dipole','Fontsize',10);
+xlabel('z/\lambda in m','Fontsize',10);
+ylabel('E_\rho in V/m','Fontsize',10);
+lgd1 = legend('\rho/\lambda=0.01','\rho/\lambda=0.02','\rho/\lambda=0.05','Location','north','Orientation','vertical','Fontsize',10);
+ah1=axes('position',get(gca,'position'),'visible','off');
+title(lgd1,'Method2','Fontsize',10)
+lgd2 = legend(ah1,[p5,p6,p7],'\rho/\lambda=0.01','\rho/\lambda=0.02','\rho/\lambda=0.05','Location','northwest','Orientation','vertical','Fontsize',10);
+title(lgd2,'Method1','FontSize',10);
 toc;
 function q=simp(y,dx)
 N=length(y);
